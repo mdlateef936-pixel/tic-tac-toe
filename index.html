@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        
 
         body {
             background-color: #151525;
@@ -53,6 +54,17 @@
         }
 
     </style>
+    #restart {
+    width: 160px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: #00d9ff;
+    color: #151525;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+}
+    
 </head>
 
 <body>
@@ -75,9 +87,33 @@
         <button></button>
     </div>
 
-    <p>Game Status: Player X's Turn</p>
+    <p id="status">Player X's Turn</p>
+
+<button id="restart">Restart Game</button>
 
 
+// Select the restart button
+const restartButton = document.querySelector("#restart");
+
+// Restart game when button is clicked
+restartButton.addEventListener("click", function() {
+
+    // Clear all nine boxes
+    buttons.forEach(function(button) {
+        button.textContent = "";
+    });
+
+    // Player X starts again
+    currentPlayer = "X";
+
+    // Allow playing again
+    gameOver = false;
+
+    // Update game status
+    status.textContent = "Player X's Turn";
+
+});
+    
 <script>
 
     // Select all nine game buttons
