@@ -1,35 +1,82 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>My Tic Tac Toe Game</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        body {
+            background-color: #151525;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #00d9ff;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #cccccc;
+        }
+
+        .game {
+            display: grid;
+            grid-template-columns: repeat(3, 90px);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        button {
+            width: 90px;
+            height: 90px;
+            background-color: #292943;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            border: 2px solid #00d9ff;
+            border-radius: 12px;
+        }
+
+        button:active {
+            background-color: #45456b;
+        }
+
+        p {
+            color: #00d9ff;
+            margin-top: 25px;
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <h1>Tic Tac Toe</h1>
+    <h1>TIC TAC TOE</h1>
 
     <h3>Player X vs Player O</h3>
 
-    <div>
-        <button> </button>
-        <button> </button>
-        <button> </button>
-    </div>
+    <div class="game">
+        <button></button>
+        <button></button>
+        <button></button>
 
-    <div>
-        <button> </button>
-        <button> </button>
-        <button> </button>
-    </div>
+        <button></button>
+        <button></button>
+        <button></button>
 
-    <div>
-        <button> </button>
-        <button> </button>
-        <button> </button>
+        <button></button>
+        <button></button>
+        <button></button>
     </div>
 
     <p>Game Status: Player X's Turn</p>
 
 </body>
 </html>
+
