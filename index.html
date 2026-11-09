@@ -77,6 +77,93 @@
 
     <p>Game Status: Player X's Turn</p>
 
+
+<script>
+
+    // Select all nine game buttons
+    const buttons = document.querySelectorAll(".game button");
+
+    // Select the game status paragraph
+    const status = document.querySelector("p");
+
+    // Player X starts first
+    let currentPlayer = "X";
+
+    // Check whether the game has ended
+    let gameOver = false;
+
+    // All possible winning combinations
+    const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    // Add click event to every button
+    buttons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            // Stop if game ended or box is filled
+            if (button.textContent !== "" || gameOver) {
+                return;
+            }
+
+            // Display current player's symbol
+            button.textContent = currentPlayer;
+
+            // Check for a winner
+            let winner = false;
+
+            winningCombinations.forEach(function(combo) {
+
+                const [a, b, c] = combo;
+
+                if (
+                    buttons[a].textContent === currentPlayer &&
+                    buttons[b].textContent === currentPlayer &&
+                    buttons[c].textContent === currentPlayer
+                ) {
+                    winner = true;
+                }
+
+            });
+
+            if (winner) {
+                status.textContent = "Player " + currentPlayer + " Wins!";
+                gameOver = true;
+                return;
+            }
+
+            // Check for a draw
+            const isDraw = [...buttons].every(function(btn) {
+                return btn.textContent !== "";
+            });
+
+            if (isDraw) {
+                status.textContent = "Game Draw!";
+                gameOver = true;
+                return;
+            }
+
+            // Change player
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+            status.textContent = "Player " + currentPlayer + "'s Turn";
+
+        });
+
+    });
+
+</script>
+</body>
+</html>
+
 </body>
 </html>
 
